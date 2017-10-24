@@ -6,6 +6,14 @@ const Services = [
 	{
 		"name" : "Seat Availability",
 		"route" : "/seat"
+	},
+	{
+		"name" : "Train Route",
+		"route" : "/route"
+	},
+	{
+		"name" : "Train Between Stations",
+		"route" : "/between"
 	}
 ];
 

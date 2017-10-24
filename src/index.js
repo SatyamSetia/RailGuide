@@ -8,6 +8,8 @@ import promise from 'redux-promise';
 import App from './components/app';
 import LiveTrainStatus from './components/live_train_status';
 import SeatAvailability from './components/seat_availability';
+import TrainRoute from './components/train_route';
+import TrainBetweenStations from './components/train_between_stations';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
@@ -19,6 +21,8 @@ ReactDOM.render(
     		<Switch>
     			<Route path="/live" component={LiveTrainStatus}/>
     			<Route path="/seat" component={SeatAvailability}/>
+          <Route path="/route" component={TrainRoute}/>
+          <Route path="/between" component={TrainBetweenStations}/>
     			<Route path="/" component={App}/>
     		</Switch>
     	</div>
