@@ -6,10 +6,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
 
 import App from './components/app';
-import LiveTrainStatus from './components/live_train_status';
-import SeatAvailability from './components/seat_availability';
-import TrainRoute from './components/train_route';
-import TrainBetweenStations from './components/train_between_stations';
+import LiveTrainStatus from './containers/live_train_status';
+import SeatAvailability from './containers/seat_availability';
+import TrainRoute from './containers/train_route';
+import TrainBetweenStations from './containers/train_between_stations';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
@@ -28,4 +28,4 @@ ReactDOM.render(
     	</div>
     </BrowserRouter>
   </Provider>
-  , document.querySelector('.container'));
+  , document.querySelector('.app'));

@@ -1,0 +1,207 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.primaryColor {
+	background-color: #9C27B0;
+}
+
+.secondaryColor{
+	background-color: #E1BEE7;
+}
+
+.header {
+	height: 150px;
+	width: 100%;
+	padding: 20px;
+	position: fixed;
+	z-index: 2;
+}
+
+.heading{
+	color: #E1BEE7;
+}
+
+.content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 190px 0px 60px 0px;
+    z-index: 1;
+}
+
+.card{
+	width: 15rem;
+}
+
+.card:hover {
+	background-color: #E1BEE7;
+}
+
+.card-img-top{
+	max-width: 15rem;
+	max-height: 15rem;
+}
+
+.imgm{
+	height:10rem;
+	width: 10rem;
+	max-width: 10rem;
+	max-height: 10rem;
+}
+
+.card-title{
+	margin: 10px 0 10px 0;
+	text-align: center;
+}
+
+.footer{
+	height: 40px;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+}
+
+.col-md-4{
+	padding-bottom: 60px;
+}
+
+input {
+	height: 30px;
+}
+
+.loader{
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.loader img{
+	max-height: 240px;
+	max-width: 320px;
+}
+
+.details{
+	margin-top: 20px;
+	margin-bottom: 60px;
+}
+
+.detailMessage {
+	width: 100%;
+	padding: 70px 40px 70px 40px;
+	color: #9C27B0;
+	font-family: 'Patua One', cursive;
+	text-align: center;
+	background-color: #E1BEE7;
+	border-radius: 10px;
+}
+
+.train-name{
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.start-date{
+	text-align: right;
+	margin-bottom: 20px;
+}
+
+.position{
+	margin: 0 0 20px 0;
+}
+
+.arrived {
+	text-align: center;
+	color: #4CAF50;
+}
+
+.just-arrived{
+	text-align: center;
+	color: #2196F3;
+	animation-duration: 8000ms;
+  	animation-name: tgle;
+  	animation-iteration-count: infinite;
+}
+
+.not-arrived {
+	text-align: center;
+	color: #ef5350;
+}
+
+.tab-list{
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+.tab-list>li{
+	text-align: center;
+	border-radius: 0px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	background-color: #ffffff;
+	color: #9C27B0; 
+}
+
+.tab-list>li:hover{
+	background-color: #E1BEE7;
+}
+
+.select-tab{
+	background-color: #9C27B0;
+}
+
+.gMap{
+	width: 100%;
+	height: 500px;
+}
+
+table>thead>tr>th{
+	text-align: center;
+}
+
+table>tbody>tr>td{
+	text-align: center;	
+}
+
+@keyframes tgle {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+  	opacity: 0;
+  }
+}

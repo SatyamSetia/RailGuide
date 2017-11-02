@@ -6,7 +6,7 @@ const ROOT_URL = 'http://api.railwayapi.com/v2/';
 export const LIVE_STATUS = 'live_status';
 export const SEAT_STATUS = 'seat_status';
 export const TRAIN_ROUTE = 'train_route' ;
-export const TRAIN_BETWEEN_STATIONS = 'trainBetweenStations';
+export const TRAIN_BETWEEN_STATIONS = 'train_between_stations';
 
 export function liveStatus(trainNum, date) {
 	const url = `${ROOT_URL}live/train/${trainNum}/date/${date}/apikey/${API_KEY}`;
