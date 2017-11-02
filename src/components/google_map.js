@@ -9,49 +9,53 @@ class GoogleMap extends Component {
 			zoom: 8,
 			center: source
 		});
-		var geocoder = new google.maps.Geocoder();
 		var trainPath = [];
 		route.map((station)=>{
-			setTimeout(2000);
-			var marker;
-			geocoder.geocode( { 'address': `${station.station.name} railway station`}, function(results, status) {
-		     	// if(status == 'OVER_QUERY_LIMIT'){
-		     	// 	setTimeout(2000);
-		     	// 	status = 'OK';
-		     	// }
+			Geocode(`${station.station.name} railway station`, routeMap, station.station.name, station.distance, station.scharr, station.schdep, trainPath);
+		});
 
-		     	if (status == 'OK') {
-		     		
-		        	routeMap.setCenter(results[0].geometry.location);
-		        	marker = new google.maps.Marker({
-		            	map: routeMap,
-		            	title: `${station.station.name}`,
-		            	position: results[0].geometry.location
-		        	});
-		        	
-		        	var infowindow = new google.maps.InfoWindow({
-					    content: `Distance: ${station.distance} kms, Arrival: ${station.scharr}, Departure: ${station.schdep}`
+		var polyline = new google.maps.Polyline({
+		    path: trainPath,
+		    geodesic: true,
+		    strokeColor: "#0000FF",
+		    strokeOpacity: 0.8,
+		    strokeWeight: 2
+		});
+
+		polyline.setMap(routeMap);
+
+
+		function Geocode(address, routeMap, stationName, distance, arrival, departure, trainPath) {
+			var geocoder = new google.maps.Geocoder();
+		    geocoder.geocode({
+		        'address': address
+		    }, function(results, status) {
+		        if (status === google.maps.GeocoderStatus.OK) {
+		            var result = results[0].geometry.location;
+		            var marker = new google.maps.Marker({
+		                position: result,
+		            	title: stationName,
+		                map: routeMap
+		            });
+
+		            trainPath.push(result);
+		            var infowindow = new google.maps.InfoWindow({
+					    content: `Distance: ${distance} kms, Arrival: ${arrival}, Departure: ${departure}`
 					});
 
 					marker.addListener('click', function() {
 						infowindow.open(routeMap,marker);
 					});
-					console.log(station.station.name);
-		      	}else{
-		        	alert('Geocode was not successful for the following reason: ' + status);
-		      	}
-		      	trainPath.push(marker.getPosition());
+		        } else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {    
+		            setTimeout(function() {
+		                Geocode(address, routeMap, stationName, distance, arrival, departure, trainPath);
+		            }, 200);
+		        } else {
+		            alert("Geocode was not successful for the following reason:" 
+		                  + status);
+		        }
 		    });
-
-			
-		});
-
-		new google.maps.Polyline({
-		    path: trainPath,
-		    strokeColor: "#0000FF",
-		    strokeOpacity: 0.8,
-		    strokeWeight: 2
-		}).setMap(routeMap);	
+		}	
 	}
 
 	render(){
